@@ -1,0 +1,11 @@
+{% comment %} {% extends "global/base.html" %} {% endcomment %}
+
+{% load static %}
+{% for item in lista %}
+<ul>
+    <li><img src="{{ item.imagem.url }}" alt="{{ item.nome }}"></li>
+    <li>Item: {{ item.nome }}</li>
+    <li>Categoria: {{ item.categoria }}</li>
+    <li>R$ {{ item.preco }}</li>
+</ul>
+{% endfor %}
