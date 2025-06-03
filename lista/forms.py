@@ -7,10 +7,15 @@ class ItemForm(forms.ModelForm):
         fields = [
             'imagem',
             'nome',
+            'categoria',
             'prioridade',
             'por_que',
-            'categoria',
+ 
         ]
+
+        widgets = {
+            'por_que': forms.Textarea(attrs={'cols': 30, 'rows': 5}), #tava quebrando o CSS
+        }
 
 class CategoriaForm(forms.ModelForm):
     class Meta:
@@ -25,9 +30,8 @@ class HistoricoForm(forms.ModelForm):
     class Meta:
         model = Historico
         fields = [
-            'loja',
-            'data',
+            # 'loja',
             'link',
             'preco',
-            'item',
+            # 'item', #esse item não vai ser inserido na mesma hora do formulário
         ]

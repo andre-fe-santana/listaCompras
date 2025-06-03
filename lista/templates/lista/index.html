@@ -1,11 +1,92 @@
-{% comment %} {% extends "global/base.html" %} {% endcomment %}
-
+{% include "global/base.html" %}
 {% load static %}
-{% for item in lista %}
-<ul>
-    <li><img src="{{ item.imagem.url }}" alt="{{ item.nome }}"></li>
-    <li>Item: {{ item.nome }}</li>
-    <li>Categoria: {{ item.categoria }}</li>
-    <li>R$ {{ item.preco }}</li>
-</ul>
-{% endfor %}
+
+<main id="conteudo">
+    <div class="items">
+        <div class="items-navbar">
+            <h1>SUA LISTA DE PRODUTOS</h1>
+            <div class="items-navbar-buttons">
+                <nav>
+                    <ul>
+                        <li><a href="#"><img src="{% static 'global/assets/svg/order-by.svg' %}" alt="Icone de Ordenar"></img></a></li>
+                        <li  id="btnAdicionar" onclick="mostraForm()"><a href="#"><img src="{% static 'global/assets/svg/add-item.svg' %}" alt="Icone de Adicionar"></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="items-grid">
+            {% for item in lista %}
+            <div class="items-card">
+                <div class="items-card-image">
+                    <img src="{{ item.imagem.url }}" alt="{{ item.nome }}">
+                </div>
+                <div class="items-card-body">
+                    <h3>{{ item.nome }}</h3>
+                    <span class="category-span">{{ item.categoria }}</span>
+                    <span class="price-item">R$ 120,00{{ item.preco }}</span>
+                    <a href="#"><button  class="details-button">VER DETALHES</button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+
+
+<!-- FORM DE CADASTRO (MODAL) -->
+<div class="items-modal" id="formCadastro">
+    <div class="items-modal-content">
+        <div class="items-modal-close">
+            <button onclick="fechaForm()" id="closeButton">X</button>
+        </div>
+        <div class="items-modal-content-form">
+            <form method="post" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div class="left-form">
+                    <!-- input de imagem-->
+                    <div class="left-form-image-upload">
+                        <label for="id_imagem">
+                            <img src="{% static 'global/assets/svg/image-upload.svg' %}" alt="Icone de Imagem"></img>
+                        </label>
+                        {{item_form.imagem}}
+                    </div>
+                    <div class="left-form-input">
+                        <label for="id_por_que">Por quê?</label>
+                        {{item_form.por_que}}
+                    </div>
+                </div>
+                <div class="right-form">
+                    <div class="form-input">
+                        <label for="id_nome">Nome</label>
+                        {{item_form.nome}}
+                    </div>
+                    <div class="form-input">
+                        <label for="id_categoria">Categoria</label>
+                        {{item_form.categoria}}
+                    </div>
+                    <div class="form-input">
+                        <label for="id_prioridade">Prioridade</label>
+                        {{item_form.prioridade}}
+                    </div>
+                    <div class="form-input">
+                        <label for="id_preco">Preço</label>
+                        {{historico_form.preco}}
+                    </div>
+                    <div class="form-input">
+                        <label for="id_link">Link da Loja</label>
+                        {{historico_form.link}}
+                    </div>
+                    <div class="form-input">
+                        <button type="submit">CRIAR</button>
+                    </div>
+        
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{% static '/global/js/mostraForm.js' %}"></script>

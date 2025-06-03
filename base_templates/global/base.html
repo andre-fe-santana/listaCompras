@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base</title>
-</head>
+{% include "partials/_head.html" %}
 <body>
-    <h1>Deu certo!</h1>
+    <header>
+        {% include "partials/_header.html" %}
+    </header>
+
+    {% comment %} <footer>
+        {% include "partials/_footer.html" %}
+    </footer> {% endcomment %}
 </body>
 </html>

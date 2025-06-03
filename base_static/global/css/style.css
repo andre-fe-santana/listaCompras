@@ -1,0 +1,407 @@
+/* Variáveis de Cor */
+:root {
+    --background-body: #FCDFFF;
+    --background-navbar: #90ee90;
+    --background-nav-items: #f1f1f1;
+    --button: #69D2E7;
+    --button-shadow: #45bbd3;
+    --primary-text: black;
+    --secondary-text: #444444;
+}
+
+/* ========================= 
+            FONTES
+   ========================= */
+
+/* TITULOS */   
+@font-face {
+    font-family: "Vietnam Black";
+    src: url(../assets/fonts/BeVietnamPro-Black.ttf);
+}
+
+/* SUBTITULOS */
+@font-face {
+    font-family: "Vietnam SemiBold";
+    src: url(../assets/fonts/BeVietnamPro-SemiBold.ttf);
+}
+
+
+/* TEXTO */
+@font-face {
+    font-family: "Vietnam Regular";
+    src: url(../assets/fonts/BeVietnamPro-Regular.ttf);
+}
+
+/* ========================= 
+            PADRÃO
+   ========================= */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif; /* padronizando */
+}
+
+/* ========================= 
+            NAVBAR
+   ========================= */
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--background-navbar);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 1rem 2rem;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    border: black;
+    font-family: 'Vietnam Black';
+}
+
+.logo h1 {
+    text-shadow: 2px 2px black;
+}
+
+.logo img {
+    width: 30px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li {
+    background-color: var(--background-nav-items);
+    padding: 10px;
+    border: 3px solid black;
+    box-shadow: 5px 5px black; /* (x, y)*/
+    cursor: pointer;
+}
+
+.nav-links li:hover{
+    transition: 0.2s;
+    background-color: #ccc;
+    transform: scale(1.1);
+}
+
+.nav-links li img {
+    width: 30px;
+    text-decoration: none;
+
+}
+.nav-links li a:hover {
+    color: #fff;
+}
+
+
+/* ========================= 
+            MAIN
+   ========================= */
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+    width: 100%;
+
+    background-color: var(--background-body);
+}
+
+main img{
+    max-width: 100%; /* pra evitar que saia da div */
+}
+
+.items{
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.items-navbar{
+    display: flex;    
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.items-navbar h1{
+    text-transform: uppercase;
+    font-family: 'Vietnam Black';
+}
+
+.items-navbar ul{
+    display: flex;
+    gap: 15px;
+}
+
+.items-navbar li{
+    list-style: none;
+    background-color: var(--background-nav-items);
+    padding: 3px 3px;
+    border: 3px solid black;
+    box-shadow: 5px 5px black; /* (x, y)*/
+    cursor: pointer;
+}
+
+.items-navbar li:hover{
+    transition: 0.2s;
+    background-color: #ccc;
+    transform: scale(1.1);
+    
+}
+
+.items-navbar a{
+    text-decoration: none;
+    color: black;
+}
+
+.items-navbar img{
+    width: 30px;
+}
+
+.items-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* repete 3 vezes por linha */
+    gap: 30px;
+    margin-top: 1.5rem;
+}
+
+.items-card {
+    padding: 1.5rem;
+    background-color: var(--background-nav-items);
+    border: 3px solid black;
+    box-shadow: 5px 5px black;
+}
+
+.items-card:hover{
+    transition: 0.2s;
+    transform: scale(1.05);
+}
+
+.items-card-image img {
+    width: 300px;
+}
+
+.items-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.items-card-body h3{
+    font-size: 1rem;
+    padding: 1rem 0 ;
+    text-transform: uppercase;
+    font-family: 'Vietnam Semibold';
+     
+}
+
+.items-card-body .category-span{
+    display: inline-flex;
+    padding: 0.4rem 0.3rem;
+    background-color: var(--background-navbar);
+    border: 3px solid black;
+    /* box-shadow: 5px 5px black; */
+    font-family: 'Vietnam Regular';
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.items-card-body .price-item{
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: 'Vietnam Black';
+     
+}
+
+.items-card-body .details-button{
+    background-color: var(--button);
+    box-shadow: 5px 5px black;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Vietnam Black';
+     
+    width: 100%;
+}
+
+.items-card-body .details-button:hover{
+    transition: 0.2s;
+    background-color: var(--button-shadow);
+    transform: scale(1.1);
+}
+
+/* =======================================
+            FORM DE CADASTRO (MODAL)
+   ======================================*/
+
+    .items-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+.items-modal-content {
+    flex-direction: column;
+    padding: 1rem 3rem;
+    gap: 1.5rem;
+    max-width: 900px;
+    min-width: 500px;
+    font-family: 'Vietnam Regular';
+    background-color: var(--background-nav-items);
+    border: 3px solid black;
+    box-shadow: 5px 5px black; /* (x, y)*/
+}
+
+.items-modal input{
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.items-modal-close {
+    width: 100%;
+    display: flex;
+    justify-content: end; 
+}
+
+.items-modal-close button {
+    background-color: var(--background-nav-items);
+    padding: 10px 10px;
+    border: 3px solid black;
+    box-shadow: 5px 5px black; /* (x, y)*/
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.items-modal-close button:hover{
+    transition: 0.2s;
+    background-color: #ccc;
+    transform: scale(1.1);
+}
+
+.items-modal-content-form {
+    justify-content: center;
+    width: 100%;
+}
+
+.items-modal-content-form form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.left-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Esconder o input de file */
+.left-form-image-upload #id_imagem{
+    display: none;
+}
+
+.left-form-image-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-form-image-upload label{
+    padding: 5rem;
+    background-color: white;
+    border: 3px solid black;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.left-form-image-upload:hover{
+    transition: 0.2s;
+    background-color: var(--background-nav-items);
+}
+
+.left-form-image-upload img{
+    width: 50px;
+}
+
+.left-form-input{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.left-form-input textarea{
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 1.3rem;
+    font-family: 'Vietnam Regular';
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.right-form .form-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    padding-bottom: 1rem;
+    gap: 10px;
+}
+
+.form-input label{
+    font-family: 'Vietnam Semibold';
+}
+
+.form-input input{
+    height: 2.5rem;
+    font-family: 'Vietnam Regular';
+}
+
+.form-input select{
+    height: 3rem;
+    font-size: 1.2rem;
+}
+
+.form-input button{
+    height: 3rem;
+    background-color: var(--button);
+    box-shadow: 5px 5px black;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Vietnam Black';
+}
+
