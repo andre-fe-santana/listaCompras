@@ -12,11 +12,24 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nome
     
+# criando as opcoes pro select de prioridade
+PRIORIDADE_CHOICES = [
+    ('BAIXA', 'Baixa'),
+    ('MÉDIA', 'Média'),
+    ('Alta', 'Alta'),
+]
+
 class Item(models.Model):
     nome = models.CharField(max_length=150)
     imagem = models.ImageField(blank=True, upload_to='imagens/%Y/%m')
     data_adicionado = models.DateField(default=timezone.now)
-    prioridade = models.CharField(max_length=15)
+
+    prioridade = models.CharField(
+        max_length=15,
+        choices=PRIORIDADE_CHOICES,
+        default='MÉDIA',
+        )
+
     por_que = models.TextField()
     comprado = models.BooleanField(default=False)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)

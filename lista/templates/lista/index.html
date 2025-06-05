@@ -49,7 +49,7 @@
                     <!-- input de imagem-->
                     <div class="left-form-image-upload">
                         <label for="id_imagem">
-                            <img src="{% static 'global/assets/svg/image-upload.svg' %}" alt="Icone de Imagem"></img>
+                            <img src="{% static 'global/assets/svg/image-upload.svg' %}" alt="Icone de Imagem" id="imagePreview"></img>
                         </label>
                         {{item_form.imagem}}
                     </div>
@@ -74,6 +74,10 @@
                     <div class="form-input">
                         <label for="id_preco">Preço</label>
                         {{historico_form.preco}}
+                    </div>
+                    <div class="form-input">
+                        <label for="id_prioridade">Loja</label>
+                        {{historico_form.loja}}
                     </div>
                     <div class="form-input">
                         <label for="id_link">Link da Loja</label>

@@ -10,8 +10,6 @@ def mostrarLista(request):
     if request.method == "POST":
         itemForm = ItemForm(request.POST, request.FILES) #item tem imagem
         historicoForm = HistoricoForm(request.POST) 
-        print(itemForm.data)
-        print(historicoForm.data)
 
         if not itemForm.is_valid(): # <--- ADICIONE ESTAS DUAS LINHAS
             print("Erros do ItemForm:", itemForm.errors) # <---

@@ -192,8 +192,21 @@ main img{
     transform: scale(1.05);
 }
 
+.items-card-image{
+    width: 100%;
+    aspect-ratio: 1/1; /* quadrado */
+    position: relative;
+    overflow: hidden; /* esconde qualquer vazamento */
+}
+
 .items-card-image img {
-    width: 300px;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .items-card-body {
@@ -340,12 +353,18 @@ main img{
     border: 3px solid black;
     cursor: pointer;
     width: 100%;
-    text-align: center;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
 }
 
 .left-form-image-upload:hover{
     transition: 0.2s;
     background-color: var(--background-nav-items);
+    transform: scale(1.05);
 }
 
 .left-form-image-upload img{
@@ -375,7 +394,7 @@ main img{
 }
 
 .form-input {
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
     gap: 10px;
 }
 
@@ -389,12 +408,12 @@ main img{
 }
 
 .form-input select{
-    height: 3rem;
+    height: 2.5rem;
     font-size: 1.2rem;
 }
 
 .form-input button{
-    height: 3rem;
+    height: 2.5rem;
     background-color: var(--button);
     box-shadow: 5px 5px black;
     padding: 0.5rem;
@@ -403,5 +422,11 @@ main img{
     cursor: pointer;
     text-transform: uppercase;
     font-family: 'Vietnam Black';
+}
+
+.form-input button:hover{
+    transition: 0.2s;
+    background-color: var(--button-shadow);
+    transform: scale(1.1);
 }
 

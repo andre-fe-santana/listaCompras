@@ -2,6 +2,7 @@ from django import forms
 from lista.models import Item, Categoria, Historico
 
 class ItemForm(forms.ModelForm):
+
     class Meta:
         model = Item
         fields = [
@@ -14,7 +15,7 @@ class ItemForm(forms.ModelForm):
         ]
 
         widgets = {
-            'por_que': forms.Textarea(attrs={'cols': 30, 'rows': 5}), #tava quebrando o CSS
+            'por_que': forms.Textarea(attrs={'cols': 30, 'rows': 2}), #tava quebrando o CSS
         }
 
 class CategoriaForm(forms.ModelForm):
@@ -30,7 +31,7 @@ class HistoricoForm(forms.ModelForm):
     class Meta:
         model = Historico
         fields = [
-            # 'loja',
+            'loja',
             'link',
             'preco',
             # 'item', #esse item não vai ser inserido na mesma hora do formulário
